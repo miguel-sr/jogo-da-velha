@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+:root {
+  --square-background-color: rgb(45,126, 247);
+}
+
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 450px;
+  aspect-ratio: 1 / 1;
+  font-size: 2em;
+  position: absolute;
+  top: calc(50% - 245px);
+  left: calc(50% - 225px);
+}
+
+.points {
+  background-color: var(--square-background-color); 
+  width: 220px;
+  margin: 0 auto;
+  z-index: 2;
+  border: 5px outset rgb(38, 110, 219);
+  border-radius: 0 0 20px 20px;
+}
+
+.points span {
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.2em;
+  color: #fff;
+  vertical-align: middle;
+}
+
+.chooseMode {
+  background-color: var(--square-background-color); 
+  width: 350px;
+  height: 200px;
+  top: calc(50% - 100px);
+  left: calc(50% - 175px);
+  color: #fff;
+  border: 5px outset rgb(38, 110, 219);
+  border-radius: 15px;
+}
+
+.chooseMode button {
+  background-color: rgb(75, 147, 255);
+  color: #fff;
+  width: 250px;
+  margin: 5px;
+  transition: .5s;
+}
+
+.chooseMode button:hover {
+  background-color: rgb(14, 91, 224);
+  transform: scale(1.1);
+}
+
+.col {
+  background: url(), var(--square-background-color);
+  width: 100px;
+  aspect-ratio: 1 / 1;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#indicator-line {
+  height: 10px;
+  border-radius: 8px;
+  position: absolute;
+  background-color: #091d55;
+  width: 0px;
+  transform: scaleY(0) rotate(90deg);
+  z-index: 2;
+}
+
+.selectedPlayer {
+  background-color: var(--square-background-color);
+  position: absolute;
+  top: calc(90% - 68.22px);
+  left: calc(50% - 175px);
+  text-align: center;
+  border: 5px outset rgb(38, 110, 219);
+  border-radius: 25px;
+  width: 350px;
+}
+
+.selectedPlayer span {
+  display: inline-block;
+  width: 80px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.selectedPlayer span {
+  font-family: 'Rubik', sans-serif;
+  font-size: 3.5em;
+  color: #fff;
+  vertical-align: middle;
+}
