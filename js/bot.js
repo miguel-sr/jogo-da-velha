@@ -57,12 +57,12 @@ function check() {
   // Primeira linha
   if (pos[0][0] == pos[1][0] && pos[1][0] == pos[2][0]) {
     if (pos[0][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
-      indicator('1l', 'x');
+      points('xPoint');
+      indicator('1l');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
-      indicator('1l', 'o');
+      points('oPoint');
+      indicator('1l');
       disableAll();
     }
   }
@@ -70,12 +70,12 @@ function check() {
   // Segunda linha
   else if (pos[3][0] == pos[4][0] && pos[4][0] == pos[5][0]) {
     if (pos[3][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
-      indicator('2l', 'x');
+      points('xPoint');
+      indicator('2l');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
-      indicator('2l', 'o');
+      points('oPoint');
+      indicator('2l');
       disableAll();
     }
   } 
@@ -83,12 +83,12 @@ function check() {
   // Terceira linha
   else if (pos[6][0] == pos[7][0] && pos[7][0] == pos[8][0]) {
     if (pos[6][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
-      indicator('3l', 'x');
+      points('xPoint');
+      indicator('3l');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
-      indicator('3l', 'o');
+      points('oPoint');
+      indicator('3l');
       disableAll();
     }
   }
@@ -96,12 +96,12 @@ function check() {
   // Primeira coluna
   else if (pos[0][0] == pos[3][0] && pos[3][0] == pos[6][0]) {
     if (pos[0][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
-      indicator('1c', 'x');
+      points('xPoint');
+      indicator('1c');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
-      indicator('1c', 'o');
+      points('oPoint');
+      indicator('1c');
       disableAll();
     }
   } 
@@ -109,12 +109,12 @@ function check() {
   // Segunda coluna
   else if (pos[1][0] == pos[4][0] && pos[4][0] == pos[7][0]) {
     if (pos[1][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
-      indicator('2c', 'x');
+      points('xPoint');
+      indicator('2c');
       disableAll();      
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
-      indicator('2c', 'o');
+      points('oPoint');
+      indicator('2c');
       disableAll();
     }
   } 
@@ -122,12 +122,12 @@ function check() {
   // Terceira coluna
   else if (pos[2][0] == pos[5][0] && pos[5][0] == pos[8][0]) {
     if (pos[2][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
-      indicator('3c', 'x');
+      points('xPoint');
+      indicator('3c');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
-      indicator('3c', 'o');
+      points('oPoint');
+      indicator('3c');
       disableAll();
     }
   } 
@@ -135,24 +135,24 @@ function check() {
   // Diagonais 
   else if (pos[0][0] == pos[4][0] && pos[4][0] == pos[8][0]) {
     if (pos[0][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
-      indicator('1d', 'x');
+      points('xPoint');
+      indicator('1d');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
-      indicator('1d', 'o');
+      points('oPoint');
+      indicator('1d');
       disableAll();
     }
   } 
 
   else if (pos[2][0] == pos[4][0] && pos[4][0] == pos[6][0]) {
     if (pos[2][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
-      indicator('2d', 'x');
+      points('xPoint');
+      indicator('2d');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
-      indicator('2d', 'o');
+      points('oPoint');
+      indicator('2d');
       disableAll();
     }
   }
@@ -194,7 +194,7 @@ function disableAll() {
   disableBot = true;
 }
 
-let indicator = function(line, lastPlayer) {
+let indicator = function(line) {
   let indicator = document.getElementById('indicator-line');
   switch (line) {
     case '1l':
@@ -266,5 +266,10 @@ for (let index = 0; index < pos.length; index++) {
 }
 
 // Atualiza a pontuação no placar 
+function points(points) {
+  storage.setItem(points, parseInt(storage.getItem(points)) + 1);
+}
+
+
 document.getElementById('xPoint').innerHTML = storage.getItem('xPoint');
 document.getElementById('oPoint').innerHTML = storage.getItem('oPoint');

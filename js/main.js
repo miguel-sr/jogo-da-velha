@@ -11,7 +11,7 @@ var pos = [
   [document.getElementById('pos-6'), 0],
   [document.getElementById('pos-7'), 0],
   [document.getElementById('pos-8'), 0]
-]
+];
 
 var storage = window.localStorage;
 if (storage.length < 2) {
@@ -52,11 +52,11 @@ function check() {
   // Primeira linha
   if (pos[0][0] == pos[1][0] && pos[1][0] == pos[2][0]) {
     if (pos[0][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
+      points('xPoint');
       indicator('1l', 'x');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
+      points('oPoint');
       indicator('1l', 'o');
       disableAll();
     }
@@ -65,11 +65,11 @@ function check() {
   // Segunda linha
   else if (pos[3][0] == pos[4][0] && pos[4][0] == pos[5][0]) {
     if (pos[3][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
+      points('xPoint');
       indicator('2l', 'x');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
+      points('oPoint');
       indicator('2l', 'o');
       disableAll();
     }
@@ -78,11 +78,11 @@ function check() {
   // Terceira linha
   else if (pos[6][0] == pos[7][0] && pos[7][0] == pos[8][0]) {
     if (pos[6][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
+      points('xPoint');
       indicator('3l', 'x');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
+      points('oPoint');
       indicator('3l', 'o');
       disableAll();
     }
@@ -91,11 +91,11 @@ function check() {
   // Primeira coluna
   else if (pos[0][0] == pos[3][0] && pos[3][0] == pos[6][0]) {
     if (pos[0][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
+      points('xPoint');
       indicator('1c', 'x');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
+      points('oPoint');
       indicator('1c', 'o');
       disableAll();
     }
@@ -104,11 +104,11 @@ function check() {
   // Segunda coluna
   else if (pos[1][0] == pos[4][0] && pos[4][0] == pos[7][0]) {
     if (pos[1][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
+      points('xPoint');
       indicator('2c', 'x');
       disableAll();      
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
+      points('oPoint');
       indicator('2c', 'o');
       disableAll();
     }
@@ -117,11 +117,11 @@ function check() {
   // Terceira coluna
   else if (pos[2][0] == pos[5][0] && pos[5][0] == pos[8][0]) {
     if (pos[2][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
+      points('xPoint');
       indicator('3c', 'x');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
+      points('oPoint');
       indicator('3c', 'o');
       disableAll();
     }
@@ -130,11 +130,11 @@ function check() {
   // Diagonais 
   else if (pos[0][0] == pos[4][0] && pos[4][0] == pos[8][0]) {
     if (pos[0][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
+      points('xPoint');
       indicator('1d', 'x');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
+      points('oPoint');
       indicator('1d', 'o');
       disableAll();
     }
@@ -142,11 +142,11 @@ function check() {
 
   else if (pos[2][0] == pos[4][0] && pos[4][0] == pos[6][0]) {
     if (pos[2][0] == 'url(images/x-icon.svg)') {
-      storage.setItem('xPoint', parseInt(storage.getItem('xPoint')) + 1);
+      points('xPoint');
       indicator('2d', 'x');
       disableAll();
     } else {
-      storage.setItem('oPoint', parseInt(storage.getItem('oPoint')) + 1);
+      points('oPoint');
       indicator('2d', 'o');
       disableAll();
     }
@@ -246,5 +246,9 @@ for (let index = 0; index < pos.length; index++) {
 }
 
 // Atualiza a pontuação no placar
+function points(points) {
+  storage.setItem(points, parseInt(storage.getItem(points)) + 1);
+}
+
 document.getElementById('xPoint').innerHTML = storage.getItem('xPoint');
 document.getElementById('oPoint').innerHTML = storage.getItem('oPoint');
